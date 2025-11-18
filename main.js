@@ -1,4 +1,6 @@
 import * as THREE from "three";
+import { TeapotGeometry } from "three/addons/geometries/TeapotGeometry.js";
+import { OrbitControls } from "three/examples/jsm/Addons.js";
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -15,16 +17,22 @@ document.body.appendChild(renderer.domElement);
 
 const planeGeometry = new THREE.PlaneGeometry(7, 7);
 const planeMaterial = new THREE.MeshBasicMaterial({
-  color: 0xcccccc
+  color: 0xcccccc,
 });
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 scene.add(plane);
 
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-geometry.translate(0, 0, 0.5);
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+const teapotGeo = new TeapotGeometry(5, 3);
+const teapotMat = new THREE.MeshBasicMaterial({
+  color: "hsla(184, 77%, 39%, 1.00)",
+});
+const teapot = new THREE.Mesh(teapotGeo, teapotMat);
+scene.add(teapot);
+
+const torusGeo = new THREE.TorusKnotGeometry(5, 3, 2, 8);
+const torusMat = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+const torusKnot = new THREE.Mesh(torusGeo, torusMat);
+scene.add(torusKnot);
 
 camera.position.z = 5;
 camera.position.y = 7;
