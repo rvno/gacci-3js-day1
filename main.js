@@ -18,13 +18,20 @@ document.body.appendChild(renderer.domElement);
 const teapotGeo = new TeapotGeometry(5, 3);
 const teapotMat = new THREE.MeshBasicMaterial({
   color: "hsla(257, 84%, 58%, 1.00)",
+  wireframe: true,
 });
 const teapot = new THREE.Mesh(teapotGeo, teapotMat);
+teapot.scale.set(1, 1.4, 1.3);
+teapot.rotation.z = -Math.PI / 4;
 scene.add(teapot);
 
 const torusGeo = new THREE.TorusKnotGeometry(5, 0.6, 150, 10, 10, 8);
-const torusMat = new THREE.MeshBasicMaterial({ color: 0x00ffff });
+const torusMat = new THREE.MeshBasicMaterial({
+  color: 0x00ffff,
+  wireframe: true,
+});
 const torusKnot = new THREE.Mesh(torusGeo, torusMat);
+torusKnot.rotation.z = -Math.PI / 3;
 scene.add(torusKnot);
 
 camera.position.z = 3;
