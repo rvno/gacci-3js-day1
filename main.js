@@ -15,28 +15,21 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setAnimationLoop(animate);
 document.body.appendChild(renderer.domElement);
 
-const planeGeometry = new THREE.PlaneGeometry(7, 7);
-const planeMaterial = new THREE.MeshBasicMaterial({
-  color: 0xcccccc,
-});
-const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-scene.add(plane);
-
 const teapotGeo = new TeapotGeometry(5, 3);
 const teapotMat = new THREE.MeshBasicMaterial({
-  color: "hsla(184, 77%, 39%, 1.00)",
+  color: "hsla(257, 84%, 58%, 1.00)",
 });
 const teapot = new THREE.Mesh(teapotGeo, teapotMat);
 scene.add(teapot);
 
-const torusGeo = new THREE.TorusKnotGeometry(5, 3, 2, 8);
-const torusMat = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+const torusGeo = new THREE.TorusKnotGeometry(5, 0.6, 150, 10, 10, 8);
+const torusMat = new THREE.MeshBasicMaterial({ color: 0x00ffff });
 const torusKnot = new THREE.Mesh(torusGeo, torusMat);
 scene.add(torusKnot);
 
-camera.position.z = 5;
-camera.position.y = 7;
-camera.up.set(0, 0, 1);
+camera.position.z = 3;
+camera.position.y = 15;
+camera.up.set(0, 0, -3);
 camera.lookAt(0, 0, 0);
 
 function animate() {
