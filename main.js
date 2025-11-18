@@ -1,5 +1,5 @@
 import * as THREE from "three";
-// import { TeapotGeometry } from "three/addons/geometries/TeapotGeometry.js";
+import { TeapotGeometry } from "three/addons/geometries/TeapotGeometry.js";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
 
 const scene = new THREE.Scene();
@@ -15,12 +15,12 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setAnimationLoop(animate);
 document.body.appendChild(renderer.domElement);
 
-// const teapotGeo = new TeapotGeometry(5, 3);
-// const teapotMat = new THREE.MeshBasicMaterial({
-//   color: "hsla(257, 84%, 58%, 1.00)",
-// });
-// const teapot = new THREE.Mesh(teapotGeo, teapotMat);
-// scene.add(teapot);
+const teapotGeo = new TeapotGeometry(5, 3);
+const teapotMat = new THREE.MeshBasicMaterial({
+  color: "hsla(257, 84%, 58%, 1.00)",
+});
+const teapot = new THREE.Mesh(teapotGeo, teapotMat);
+scene.add(teapot);
 
 const torusGeo = new THREE.TorusKnotGeometry(5, 0.6, 150, 10, 10, 8);
 const torusMat = new THREE.MeshBasicMaterial({ color: 0x00ffff });
